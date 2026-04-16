@@ -5,8 +5,9 @@
 # Overview: https://decapcms.org/docs/backends-overview/
 # Github: https://decapcms.org/docs/github-backend/
 backend:
-  name: git-gateway
-  branch: main
+  name: test-repo
+  # name: git-gateway
+  # branch: main
 
 
 # === Localization settings
