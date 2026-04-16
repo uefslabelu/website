@@ -17,4 +17,20 @@ const blog = defineCollection({
 		}),
 });
 
-export const collections = { blog };
+const pesquisadores = defineCollection({
+	// Load Markdown and MDX files in the `src/content/pesquisadores/` directory.
+	loader: glob({ base: './src/content/pesquisadores', pattern: '**/*.{md,mdx}' }),
+	schema: ({ image }) =>
+		z.object({
+			name: z.string(),
+			position: z.string().optional(),
+			academicLevel: z.enum(['Graduação', 'Mestrado', 'Doutorado', 'Pós-doutorado', 'Outro']),
+			lattes: z.string().url(),
+			orcid: z.string().optional(),
+			linkedin: z.string().optional(),
+			summary: z.string(),
+			image: z.optional(image()),
+		}),
+});
+
+export const collections = { blog, pesquisadores };
