@@ -5,9 +5,10 @@
 # Overview: https://decapcms.org/docs/backends-overview/
 # Github: https://decapcms.org/docs/github-backend/
 backend:
-  name: test-repo
-  # name: git-gateway
-  # branch: main
+  name: github
+  repo: RickBarretto/ecompjr-labelu
+  preview_context: build/pages
+  branch: main
 
 
 # === Localization settings
