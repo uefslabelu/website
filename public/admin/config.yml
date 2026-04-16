@@ -8,6 +8,7 @@ backend:
   name: github
   repo: RickBarretto/ecompjr-labelu
   preview_context: build/pages
+  auth_scope: repo
   branch: main
 
 
