@@ -6,8 +6,7 @@
 # Github: https://decapcms.org/docs/github-backend/
 backend:
   name: github
-  repo: RickBarretto/ecompjr-labelu
-  branch: main
+  repo: git-gateway
 
 
 # === Localization settings
