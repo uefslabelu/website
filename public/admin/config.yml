@@ -1,11 +1,13 @@
 
 # Disable this on production
-local_backend: true
+# local_backend: true
 
 # Overview: https://decapcms.org/docs/backends-overview/
 # Github: https://decapcms.org/docs/github-backend/
 backend:
-  name: test-repo
+  name: github
+  repo: RickBarretto/ecompjr-labelu
+  branch: main
 
 
 # === Localization settings
