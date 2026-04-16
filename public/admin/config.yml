@@ -9,6 +9,15 @@ backend:
   repo: RickBarretto/ecompjr-labelu
   branch: main
 
+  # If you're hosting the admin on GitHub Pages, use GitHub OAuth
+  # (this avoids Netlify Identity / Git Gateway which redirect to Netlify).
+  # Steps:
+  # 1) Create a GitHub OAuth App at https://github.com/settings/developers
+  # 2) Set the Authorization callback URL to: https://<your-username>.github.io/ecompjr-labelu/admin/
+  # 3) Copy the OAuth App's Client ID here (replace the placeholder below).
+  auth_type: implicit
+  app_id: "Ov23liRsIw58rTp15Y0D"
+
 
 # === Localization settings
 
