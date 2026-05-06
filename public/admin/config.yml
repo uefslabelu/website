@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
 
-# Overview: https://decapcms.org/docs/backends-overview/
-# Github: https://decapcms.org/docs/github-backend/
+# Overview: https://sveltiacms.app/en/docs/backends
+# Github: https://sveltiacms.app/en/docs/backends/github
 backend:
   name: github
   repo: ecompjr/pj-labelu
