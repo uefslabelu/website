@@ -24,7 +24,7 @@ backend:
 
 # === Files & Media configuration
 
-# Documentation: https://sveltiacms.app/en/docs/media/internal#top-level-configuration
+# Media: https://sveltiacms.app/en/docs/media/internal#top-level-configuration
 media_folder: "src/assets/images"
 public_folder: "src/assets/images"
 
