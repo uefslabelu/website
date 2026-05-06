@@ -13,7 +13,13 @@ backend:
 
 # === Localization settings
 
-locale: pt
+# For now, Svelia does not supports multiple languages, 
+# but you can set the locale for the admin interface.
+# I already submited my interest in adding Brazilian Portuguese translations. 
+# So let's wait this feature be done.
+# Ref.: https://github.com/sveltia/sveltia-cms/issues/724
+# 
+# locale: pt-BR
 
 
 # === Files & Media configuration
