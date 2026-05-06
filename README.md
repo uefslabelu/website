@@ -1,10 +1,10 @@
-# Labelu
+# 🚩 Labelu
 
 Labelu is an institutional website for the Laboratory of History and Memory of Class Struggle (Laboratório de História e Memória da Luta de Classes) at the State University of Feira de Santana (UEFS). 
 It is a Content Management System (CMS) that serves as a digital showcase and entry point for researchers and individuals interested in academic studies on class struggles and labor movements.
 
 
-## 🚀 Project Structure
+## ℹ️ Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
 
