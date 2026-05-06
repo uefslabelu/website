@@ -24,11 +24,9 @@ backend:
 
 # === Files & Media configuration
 
-# Stored files
+# Documentation: https://sveltiacms.app/en/docs/media/internal#top-level-configuration
 media_folder: "src/assets/images"
-# Uploaded media
 public_folder: "src/assets/images"
-
 
 # === Content collections configuration
 
