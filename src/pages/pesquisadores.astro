@@ -1,8 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 const pesquisadores = (await getCollection('pesquisadores')).sort((a, b) =>
@@ -10,46 +8,37 @@ const pesquisadores = (await getCollection('pesquisadores')).sort((a, b) =>
 );
 ---
 
-<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <BaseHead title={`Pesquisadores — ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-    <style>
-      main { width: 960px; }
-      ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.5rem; }
-      li { border-radius: 8px; padding: 1rem; }
-      .name { margin: 0 0 0.25rem 0; font-size: 1.25rem; }
-      .meta { color: rgb(var(--gray)); margin: 0 0 0.5rem 0; }
-      .links a { margin-right: 0.5rem; color: rgb(var(--accent)); }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <main>
-      <h1>Pesquisadores</h1>
-      <section>
-        <ul>
-          {pesquisadores.map((p) => (
-            <li>
-              <h3 class="name">{p.data.name}</h3>
-              <p class="meta">{p.data.position ? `${p.data.position} • ` : ''}{p.data.academicLevel}</p>
-              <p>{p.data.summary}</p>
-              <p class="links">
-                {p.data.lattes && (
-                  <a href={p.data.lattes} target="_blank" rel="noopener">Lattes</a>
-                )}
-                {p.data.orcid && (
-                  <a href={`https://orcid.org/${p.data.orcid}`} target="_blank" rel="noopener">ORCID</a>
-                )}
-                {p.data.linkedin && (
-                  <a href={p.data.linkedin} target="_blank" rel="noopener">LinkedIn</a>
-                )}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+<BaseLayout title={`Pesquisadores — ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
+  <style>
+    main { width: 960px; }
+    ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.5rem; }
+    li { border-radius: 8px; padding: 1rem; }
+    .name { margin: 0 0 0.25rem 0; font-size: 1.25rem; }
+    .meta { color: rgb(var(--gray)); margin: 0 0 0.5rem 0; }
+    .links a { margin-right: 0.5rem; color: rgb(var(--accent)); }
+  </style>
+
+  <h1>Pesquisadores</h1>
+  <section>
+    <ul>
+      {pesquisadores.map((p) => (
+        <li>
+          <h3 class="name">{p.data.name}</h3>
+          <p class="meta">{p.data.position ? `${p.data.position} • ` : ''}{p.data.academicLevel}</p>
+          <p>{p.data.summary}</p>
+          <p class="links">
+            {p.data.lattes && (
+              <a href={p.data.lattes} target="_blank" rel="noopener">Lattes</a>
+            )}
+            {p.data.orcid && (
+              <a href={`https://orcid.org/${p.data.orcid}`} target="_blank" rel="noopener">ORCID</a>
+            )}
+            {p.data.linkedin && (
+              <a href={p.data.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+            )}
+          </p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
