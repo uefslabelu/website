@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import logoLabelu from '../assets/logo-labelu.svg';
 import logoUefs from '../assets/logo-uefs.svg';
 import logoEcompjr from '../assets/logo-ecompjr.png';
+import { Icon } from 'astro-icon/components';
 
 const year = new Date().getFullYear();
 ---
@@ -26,17 +27,11 @@ const year = new Date().getFullYear();
 		<div class="footer-section">
 			<p class="section-title">Redes Sociais</p>
 			<div class="social-links">
-				<a href="https://instagram.com/labelu.uefs" target="_blank" rel="noopener" aria-label="Instagram do Labelu">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
-						<rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-						<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-						<line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-					</svg>
+				<a href="https://www.instagram.com/uefslabelu/" target="_blank" rel="noopener" aria-label="Instagram do Labelu">
+					<Icon name="mdi:instagram" size={28} />
 				</a>
-				<a href="https://youtube.com/@labelu" target="_blank" rel="noopener" aria-label="Youtube do Labelu">
-					<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-						<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-					</svg>
+				<a href="https://www.youtube.com/@LABELUuefs" target="_blank" rel="noopener" aria-label="Youtube do Labelu">
+					<Icon name="mdi:youtube" size={28} />
 				</a>
 			</div>
 		</div>
