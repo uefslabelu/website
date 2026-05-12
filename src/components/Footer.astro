@@ -1,9 +1,9 @@
 ---
 import { COPYRIGHT_NAME } from '../consts';
 import { Image } from 'astro:assets';
-import logoLabelu from '../assets/logo-labelu.svg';
+import logoLabelu from '../assets/logo-labelu.png';
 import logoUefs from '../assets/logo-uefs.svg';
-import logoEcompjr from '../assets/logo-ecompjr.png';
+import logoEcompjr from '../assets/logo-ecompjr.svg';
 import { Icon } from 'astro-icon/components';
 
 const year = new Date().getFullYear();
@@ -13,13 +13,13 @@ const year = new Date().getFullYear();
 	<div class="footer-content">
 		<!-- Associação Institucional com a UEFS -->
 		<div class="footer-section">
-			<Image src={logoUefs} alt="Logo UEFS" width={64} height={64} />
+			<Image src={logoUefs} alt="Logo UEFS" width={64} height={64} class="invert-colors" />
 			<p>Associado à Universidade Estadual de Feira de Santana</p>
 		</div>
 
 		<!-- Nome do Laboratório e logo -->
 		<div class="footer-section">
-			<Image src={logoLabelu} alt="Logo Labelu" width={120} height={36} />
+			<Image src={logoLabelu} alt="Logo Labelu" width={120} height={64} />
 			<p>Laboratório de História e Memória da Luta de Classes</p>
 		</div>
 
@@ -39,11 +39,10 @@ const year = new Date().getFullYear();
 
 	<!-- Créditos e Copyright -->
 	<div class="footer-bottom">
-		<p>
+		<p class="developed-by">
 			Desenvolvido por
 			<a href="https://ecompjr.com.br" target="_blank" rel="noopener">
-				<Image src={logoEcompjr} alt="Logo EcompJR" width={20} height={20} class="ecompjr-logo" />
-				EcompJR
+				<Image src={logoEcompjr} alt="Logo EcompJR" width={100} height={100} class="ecompjr-logo" />
 			</a>
 		</p>
 		<p>&copy; {year} {COPYRIGHT_NAME}. Todos os direitos reservados.</p>
@@ -109,6 +108,9 @@ const year = new Date().getFullYear();
 		width: 28px;
 		height: 28px;
 	}
+	.footer-section :global(.invert-colors) {
+		filter: invert(1);
+	}
 	.footer-bottom {
 		border-top: 1px solid rgba(255, 255, 255, 0.15);
 		max-width: 900px;
@@ -120,6 +122,12 @@ const year = new Date().getFullYear();
 		margin: 0 0 0.25rem;
 		font-size: 0.78rem;
 		color: rgba(255, 255, 255, 0.5);
+	}
+	.footer-bottom .developed-by {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
 	}
 	.footer-bottom a {
 		color: rgba(255, 255, 255, 0.7);
