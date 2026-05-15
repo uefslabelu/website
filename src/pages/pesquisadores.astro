@@ -1,50 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { collections } from 'astro:content';
 
-// Dados mockados — serão substituídos pela collection depois
-const pesquisadores = [
-  {
-    name: 'Andrei de Brito Valente',
-    position: 'Analista em História',
-    academicLevel: 'Doutorado',
-    summary: 'Possui graduação em Licenciatura em História e mestrado em História; doutorando pela Universidade Federal Fluminense. Atua como professor e analista universitário; pesquisa classe dominante, comércio, desenvolvimento econômico e capitalismo agrário.',
-    lattes: 'http://lattes.cnpq.br/6348750511590536',
-    orcid: '0000-0002-1825-0097',
-    linkedin: '',
-    image: null,
-  },
-  {
-    name: 'Arua Silva de Lima',
-    position: 'Pesquisadora',
-    academicLevel: 'Mestrado',
-    summary: 'Pesquisadora na área de computação aplicada à educação. Trabalha com visualização de dados e aprendizado de máquina para educação.',
-    lattes: 'http://lattes.cnpq.br/0000000000000001',
-    orcid: '',
-    linkedin: 'https://linkedin.com/in/arua',
-    image: null,
-  },
-  {
-    name: 'Camila Ferreira de Souza',
-    position: 'Bolsista de Iniciação Científica',
-    academicLevel: 'Graduação',
-    summary: 'Graduanda em Ciência da Computação. Pesquisa interfaces digitais para inclusão educacional em contextos rurais e periféricos.',
-    lattes: 'http://lattes.cnpq.br/0000000000000002',
-    orcid: '',
-    linkedin: '',
-    image: null,
-  },
-  {
-    name: 'Eurelino Teixeira Coelho Neto',
-    position: 'Coordenador',
-    academicLevel: 'Pós-doutorado',
-    summary: 'Doutor em História Social. Coordena o laboratório e desenvolve pesquisas sobre história digital, memória e patrimônio cultural no semiárido baiano.',
-    lattes: 'http://lattes.cnpq.br/0000000000000003',
-    orcid: '0000-0002-0000-0001',
-    linkedin: '',
-    image: null,
-  },
-];
+// Buscar pesquisadores da collection
+const entries = await collections.pesquisadores.getAll();
+const pesquisadores = entries.map((e) => ({
+  name: e.data.name,
+  position: e.data.position ?? '',
+  academicLevel: e.data.academicLevel,
+  summary: e.data.summary,
+  lattes: e.data.lattes,
+  orcid: e.data.orcid ?? '',
+  linkedin: e.data.linkedin ?? '',
+  image: e.data.image ?? null,
+}));
 ---
 
 <BaseLayout title={`Equipe — ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
