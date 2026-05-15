@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { collections } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 // Buscar pesquisadores da collection
-const entries = await collections.pesquisadores.getAll();
+const entries = await getCollection('pesquisadores');
 const pesquisadores = entries.map((e) => ({
   name: e.data.name,
   position: e.data.position ?? '',
