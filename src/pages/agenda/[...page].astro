@@ -1,30 +1,30 @@
 ---
-import type { GetStaticPaths, Page } from 'astro';
-import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import TimelineEvent from '../../components/TimelineEvent.astro';
+import type { GetStaticPaths, Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import TimelineEvent from '../../components/TimelineEvent.astro'
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const SORT_ORDER: 'desc' | 'asc' = 'desc';
-	const PAGE_SIZE = 20;
+	const SORT_ORDER: 'desc' | 'asc' = 'desc'
+	const PAGE_SIZE = 20
 
-	const schedule = await getCollection('agenda');
+	const schedule = await getCollection('agenda')
 
 	schedule.sort((a, b) => {
-		const diff = a.data.data.valueOf() - b.data.data.valueOf();
-		return SORT_ORDER === 'desc' ? -diff : diff;
+		const diff = a.data.data.valueOf() - b.data.data.valueOf()
+		return SORT_ORDER === 'desc' ? -diff : diff
 	});
 
-	return paginate(schedule, { pageSize: PAGE_SIZE });
-}) satisfies GetStaticPaths;
+	return paginate(schedule, { pageSize: PAGE_SIZE })
+}) satisfies GetStaticPaths
 
 interface Props {
-	page: Page<CollectionEntry<'agenda'>>;
+	page: Page<CollectionEntry<'agenda'>>
 }
 
-const { page } = Astro.props;
-const baseUrl = import.meta.env.BASE_URL;
+const { page } = Astro.props
+const baseUrl = import.meta.env.BASE_URL
 
 // ── Group events by Month/Year ──
 type GroupedEvents = { 
@@ -33,21 +33,21 @@ type GroupedEvents = {
 }[]
 
 function groupByMonth(events: CollectionEntry<'agenda'>[]): GroupedEvents {
-	const groups = new Map<string, CollectionEntry<'agenda'>[]>();
+	const groups = new Map<string, CollectionEntry<'agenda'>[]>()
 
 	for (const event of events) {
-		const d = event.data.data;
-		const raw = d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
-		const label = raw.charAt(0).toUpperCase() + raw.slice(1);
+		const d = event.data.data
+		const raw = d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })
+		const label = raw.charAt(0).toUpperCase() + raw.slice(1)
 
-		if (!groups.has(label)) groups.set(label, []);
-		groups.get(label)!.push(event);
+		if (!groups.has(label)) groups.set(label, [])
+		groups.get(label)!.push(event)
 	}
 
-	return Array.from(groups.entries()).map(([label, eventos]) => ({ label, eventos }));
+	return Array.from(groups.entries()).map(([label, eventos]) => ({ label, eventos }))
 }
 
-const grouped = groupByMonth(page.data);
+const grouped = groupByMonth(page.data)
 ---
 
 <BaseLayout
