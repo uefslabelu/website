@@ -138,3 +138,11 @@ collections:
         name: body
         widget: markdown
 
+  - name: "acervo"
+    label: "Grupos de Acervo"
+    folder: "src/content/acervo"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título do Grupo", name: "title", widget: "string" }
+      - { label: "Descrição do Grupo", name: "description", widget: "text" }
