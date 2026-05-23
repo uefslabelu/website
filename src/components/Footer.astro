@@ -1,77 +1,107 @@
 ---
-import { COPYRIGHT_NAME } from '../consts';
-import { Image } from 'astro:assets';
-import logoLabelu from '../assets/logo-labelu.png';
-import logoUefs from '../assets/logo-uefs.svg';
-import logoEcompjr from '../assets/logo-ecompjr.svg';
-import { Icon } from 'astro-icon/components';
+import { COPYRIGHT_NAME } from "../consts";
+import { Image } from "astro:assets";
+import logoLabelu from "../assets/logo-labelu.png";
+import logoUefs from "../assets/logo-uefs.svg";
+import logoEcompjr from "../assets/logo-ecompjr.svg";
+import { Icon } from "astro-icon/components";
 
 const year = new Date().getFullYear();
 ---
 
 <footer>
-	<main class="footer-content">
-		<section class="footer-section">
-      <a href="https://ppgh.uefs.br/grupos-e-nucleos/" target="_blank" rel="noopener" 
+  <main class="footer-content">
+    <section class="footer-section">
+      <a
+        href="https://ppgh.uefs.br/grupos-e-nucleos/"
+        target="_blank"
+        rel="noopener"
         aria-label="Grupos e Núcleos de Pesquisa da UEFS"
       >
-        <Image src={logoUefs} width={64} height={64} class="invert-colors" 
-          alt="Logo da Universidade Estadual de Feira de Santana (UEFS)" 
+        <Image
+          src={logoUefs}
+          width={64}
+          height={64}
+          class="invert-colors"
+          alt="Logo da Universidade Estadual de Feira de Santana (UEFS)"
         />
         <p>Universidade Estadual de Feira de Santana</p>
       </a>
-		</section>
-		<section class="footer-section">
-			<Image src={logoLabelu} alt="Logo Labelu" width={120} height={64} />
-			<p>Laboratório de História e Memória da Luta de Classes</p>
-		</section>
+    </section>
     <section class="footer-section">
-      <a href="http://www.dchf.uefs.br/" target="_blank" rel="noopener" 
+      <Image src={logoLabelu} alt="Logo Labelu" width={120} height={64} />
+      <p>Laboratório de História e Memória da Luta de Classes</p>
+    </section>
+    <section class="footer-section">
+      <a
+        href="http://www.dchf.uefs.br/"
+        target="_blank"
+        rel="noopener"
         aria-label="Departamento de Ciências Humanas e Filosofia (DCHF) da UEFS"
       >
         <span class="logotype">DCHF</span>
         <p>Departamento de Ciências Humanas e Filosofia</p>
       </a>
-		</section>
-		<section class="footer-section">
-			<p class="section-title">Redes Sociais</p>
-			<div class="social-links">
-				<a href="https://www.instagram.com/uefslabelu/" target="_blank" rel="noopener" aria-label="Instagram do Labelu">
-					<Icon name="mdi:instagram" size={28} />
-				</a>
-				<a href="https://www.youtube.com/@LABELUuefs" target="_blank" rel="noopener" aria-label="Youtube do Labelu">
-					<Icon name="mdi:youtube" size={28} />
-				</a>
-			</div>
-		</section>
-	</main>
+    </section>
+    <section class="footer-section">
+      <p class="section-title">Redes Sociais</p>
+      <div class="social-links">
+        <a
+          href="https://www.instagram.com/uefslabelu/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram do Labelu"
+        >
+          <Icon name="mdi:instagram" size={28} />
+        </a>
+        <a
+          href="https://www.youtube.com/@LABELUuefs"
+          target="_blank"
+          rel="noopener"
+          aria-label="Youtube do Labelu"
+        >
+          <Icon name="mdi:youtube" size={28} />
+        </a>
+      </div>
+    </section>
+  </main>
 
-	<!-- Créditos e Copyright -->
-	<footer class="footer-bottom">
+  <!-- Créditos e Copyright -->
+  <footer class="footer-bottom">
     <address>
       <a href="mailto:lpbpacheco1@uefs.br">lpbpacheco1@uefs.br</a>
-      <a href="https://maps.app.goo.gl/9qCDBbf8MXFwN5hw9" target="_blank" rel="noopener">
-        Prédio de Programa de Pós-Graduação em História (PPGH) -
-        Avenida Transnordestina, S/N - Novo Horizonte
-        CEP 44036-900 - Feira de Santana, Bahia.
+      <a
+        href="https://maps.app.goo.gl/9qCDBbf8MXFwN5hw9"
+        target="_blank"
+        rel="noopener"
+      >
+        Prédio de Programa de Pós-Graduação em História (PPGH) - Avenida
+        Transnordestina, S/N - Novo Horizonte CEP 44036-900 - Feira de Santana,
+        Bahia.
       </a>
     </address>
-		<p class="developed-by">
-			Desenvolvido por
-			<a href="https://ecompjr.com.br" target="_blank" rel="noopener">
-				<Image src={logoEcompjr} alt="Logo EcompJR" width={100} height={100} class="ecompjr-logo" />
-			</a>
-		</p>
-		<p>&copy; {year} {COPYRIGHT_NAME}. Todos os direitos reservados.</p>
-	</footer>
+    <p class="developed-by">
+      Desenvolvido por
+      <a href="https://ecompjr.com.br" target="_blank" rel="noopener">
+        <Image
+          src={logoEcompjr}
+          alt="Logo EcompJR"
+          width={100}
+          height={100}
+          class="ecompjr-logo"
+        />
+      </a>
+    </p>
+    <p>&copy; {year} {COPYRIGHT_NAME}. Todos os direitos reservados.</p>
+  </footer>
 </footer>
 
 <style>
-	footer {
-		background: rgb(var(--gray-dark));
-		color: rgba(255, 255, 255, 0.8);
-		padding: 2.5rem 1.5rem 1.5rem;
-		margin-top: auto;
+  footer {
+    background: rgb(var(--gray-dark));
+    color: rgba(255, 255, 255, 0.8);
+    padding: 2.5rem 1.5rem 1.5rem;
+    margin-top: auto;
 
     a {
       color: white;
@@ -83,7 +113,7 @@ const year = new Date().getFullYear();
       color: #fff;
       font-size: 1.25rem;
     }
-	
+
     .footer-content {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -111,78 +141,78 @@ const year = new Date().getFullYear();
           max-width: 220px;
         }
       }
-
     }
-  
   }
 
-	.section-title {
-		font-weight: 700;
-		color: #fff;
-		font-size: 0.85rem !important;
-		margin-bottom: 0.25rem;
-	}
-	.social-links {
-		display: flex;
-		gap: 1.25rem;
-		justify-content: center;
-		align-items: center;
-	}
-	.social-links a {
-		color: rgba(255, 255, 255, 0.7);
-		text-decoration: none;
-		display: flex;
-		align-items: center;
-		transition: color 0.2s ease, transform 0.2s ease;
-	}
-	.social-links a:hover {
-		color: #fff;
-		transform: scale(1.1);
-	}
-	.social-links svg {
-		width: 28px;
-		height: 28px;
-	}
-	.footer-section :global(.invert-colors) {
-		filter: invert(1);
-	}
-	.footer-bottom {
-		border-top: 1px solid rgba(255, 255, 255, 0.15);
-		max-width: 900px;
-		margin: 0 auto;
-		padding-top: 1.25rem;
-		text-align: center;
-	}
-	.footer-bottom p {
-		margin: 0 0 0.25rem;
-		font-size: 0.78rem;
-		color: rgba(255, 255, 255, 0.5);
-	}
-	.footer-bottom .developed-by {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-	}
-	.footer-bottom a {
-		color: rgba(255, 255, 255, 0.7);
-		text-decoration: none;
-		display: inline-flex;
-		align-items: center;
-		gap: 0.3rem;
-	}
-	.footer-bottom a:hover {
-		color: #fff;
-	}
-	.footer-bottom :global(.ecompjr-logo) {
-		border-radius: 2px;
-		vertical-align: middle;
-	}
+  .section-title {
+    font-weight: 700;
+    color: #fff;
+    font-size: 0.85rem !important;
+    margin-bottom: 0.25rem;
+  }
+  .social-links {
+    display: flex;
+    gap: 1.25rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .social-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+  .social-links a:hover {
+    color: #fff;
+    transform: scale(1.1);
+  }
+  .social-links svg {
+    width: 28px;
+    height: 28px;
+  }
+  .footer-section :global(.invert-colors) {
+    filter: invert(1);
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 1.25rem;
+    text-align: center;
+  }
+  .footer-bottom p {
+    margin: 0 0 0.25rem;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .footer-bottom .developed-by {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .footer-bottom a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .footer-bottom a:hover {
+    color: #fff;
+  }
+  .footer-bottom :global(.ecompjr-logo) {
+    border-radius: 2px;
+    vertical-align: middle;
+  }
 
-	@media (max-width: 768px) {
-		.footer-content {
-			grid-template-columns: 1fr;
-			gap: 2rem;
-		}
-	}
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
 </style>

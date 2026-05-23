@@ -1,8 +1,8 @@
 
-const sortBy = <T>(array: T[], key: keyof T): T[] => {
-  return [...array].sort((a, b) => {
-    const valA = a[key]
-    const valB = b[key]
+const sortBy = <T> (array: T[], key: keyof T): T[] => {
+  return [ ...array ].sort((a, b) => {
+    const valA = a[ key ]
+    const valB = b[ key ]
 
     if (valA < valB) return -1
     if (valA > valB) return 1
@@ -10,8 +10,8 @@ const sortBy = <T>(array: T[], key: keyof T): T[] => {
   })
 }
 
-const reverse = <T>(array: T[]): T[] => {
-  return [...array].reverse()
+const reverse = <T> (array: T[]): T[] => {
+  return [ ...array ].reverse()
 }
 
 export {

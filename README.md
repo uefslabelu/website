@@ -1,8 +1,7 @@
 # 🚩 Labelu
 
-Labelu is an institutional website for the Laboratory of History and Memory of Class Struggle (Laboratório de História e Memória da Luta de Classes) at the State University of Feira de Santana (UEFS). 
+Labelu is an institutional website for the Laboratory of History and Memory of Class Struggle (Laboratório de História e Memória da Luta de Classes) at the State University of Feira de Santana (UEFS).
 It is a Content Management System (CMS) that serves as a digital showcase and entry point for researchers and individuals interested in academic studies on class struggles and labor movements.
-
 
 ## ℹ️ Project Structure
 
@@ -67,5 +66,5 @@ This work was developed by [EcompJr](https://ecompjr.com.br/).
 
 ### Prototype
 
-The initial theme used for prototype was provided by Astro's default theme. 
+The initial theme used for prototype was provided by Astro's default theme.
 This is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
