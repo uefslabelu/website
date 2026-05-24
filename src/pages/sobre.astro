@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { SITE_TITLE, SITE_DESCRIPTION, LOCATION, CONTACT_EMAIL } from "../consts";
 
 import Layout from "../layouts/BaseLayout.astro";
 import logo from "../assets/logo-labelu-about.png";
@@ -173,17 +173,17 @@ import logo from "../assets/logo-labelu-about.png";
           >
             Contato
           </h2>
-          <div class="mb-8">
+          <address class="mb-8">
             <p class="text-sm text-body mb-2">
-              <span class="font-semibold">Email:</span> contato@labelu.org
-            </p>
-            <p class="text-sm text-body mb-2">
-              <span class="font-semibold">Telefone:</span> (00) 0000-0000
+              <span class="font-semibold">Email:</span><a href={`mailto:${CONTACT_EMAIL}`}>
+                {CONTACT_EMAIL}
+              </a>
             </p>
             <p class="text-sm text-body">
-              <span class="font-semibold">Endereço:</span> Rua Exemplo, 123 — Cidade/Estado
+              <span class="font-semibold">Endereço:</span>
+              {LOCATION}
             </p>
-          </div>
+          </address>
 
           {/* Social Media */}
           <div class="flex items-center gap-6">
