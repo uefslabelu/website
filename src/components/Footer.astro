@@ -1,5 +1,5 @@
 ---
-import { COPYRIGHT_NAME } from "../consts";
+import { CONTACT_EMAIL, COPYRIGHT_NAME, LOCATION } from "../consts";
 import { Image } from "astro:assets";
 import logoLabelu from "../assets/logo-labelu.png";
 import logoUefs from "../assets/logo-uefs.svg";
@@ -89,10 +89,10 @@ const year = new Date().getFullYear();
       class="mb-4 flex flex-col items-center gap-2 not-italic text-sm text-white/70"
     >
       <a
-        href="mailto:lpbpacheco1@uefs.br"
+        href={`mailto:${CONTACT_EMAIL}`}
         class="transition-colors hover:text-white"
       >
-        lpbpacheco1@uefs.br
+        {CONTACT_EMAIL}
       </a>
       <a
         href="https://maps.app.goo.gl/9qCDBbf8MXFwN5hw9"
@@ -100,9 +100,7 @@ const year = new Date().getFullYear();
         rel="noopener"
         class="max-w-2xl transition-colors hover:text-white"
       >
-        Prédio de Programa de Pós-Graduação em História (PPGH) - Avenida
-        Transnordestina, S/N - Novo Horizonte CEP 44036-900 - Feira de Santana,
-        Bahia.
+        {LOCATION}
       </a>
     </address>
 
