@@ -223,7 +223,6 @@ collections:
       - label: Ementa
         name: summary
         widget: text
-        maxlength: 500
         hint: "Breve descrição da pesquisa (máx. 500 caracteres)"
 
       - label: Publicação
