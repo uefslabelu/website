@@ -3,9 +3,5 @@
 
 export const REPO = "pj-labelu"
 export const SITE_TITLE = 'Labelu'
-export const SITE_DESCRIPTION = `
-    Laboratório de História e Memória da Luta de Classes
-`
-export const COPYRIGHT_NAME = `
-    Labelu - Laboratório de História e Memória da Luta de Classes
-`
+export const SITE_DESCRIPTION = "Laboratório de História e Memória da Luta de Classes"
+export const COPYRIGHT_NAME = "Labelu - Laboratório de História e Memória da Luta de Classes"
