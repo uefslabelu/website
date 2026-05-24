@@ -1,5 +1,10 @@
 ---
-import { type CollectionEntry, getCollection, getEntry, render } from "astro:content";
+import {
+  type CollectionEntry,
+  getCollection,
+  getEntry,
+  render,
+} from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export const getStaticPaths = async () =>
@@ -11,14 +16,33 @@ export const getStaticPaths = async () =>
 type Props = CollectionEntry<"research">;
 
 const pesquisa = Astro.props;
-const { title, researchLine, startYear, endYear, summary, publication, researchers } =
+const { title, line, startYear, endYear, summary, publication, researchers } =
   pesquisa.data;
 const { Content } = await render(pesquisa);
 
 const currentYear = new Date().getFullYear();
-const isOngoing = endYear >= currentYear;
+
+// Determine if we have dates and status
+const hasStartYear = startYear !== null && startYear !== undefined;
+const hasEndYear = endYear !== null && endYear !== undefined;
+const hasBothYears = hasStartYear && hasEndYear;
+const isOngoing = hasBothYears ? endYear >= currentYear : hasStartYear;
 
 const baseUrl = import.meta.env.BASE_URL;
+
+// Resolve research line to get full title
+const researchLineEntry = await getEntry("researchLine", line);
+const researchLineTitle = researchLineEntry?.data.title || line;
+
+// Format date display
+let dateDisplay = "";
+if (hasStartYear) {
+  if (hasEndYear) {
+    dateDisplay = `${startYear} – ${endYear}`;
+  } else {
+    dateDisplay = `${startYear} – ${currentYear}`;
+  }
+}
 
 // Resolve researcher IDs to full team member data
 const resolvedResearchers = (
@@ -58,28 +82,33 @@ const jsonLd = {
         class="flex justify-between items-center flex-wrap gap-2 mb-4
                   max-[720px]:flex-col max-[720px]:items-start"
       >
-        <span class="text-sm text-secondary-text font-bold">
-          {startYear} – {endYear}
-        </span>
+        {
+          dateDisplay && (
+            <span class="text-sm text-secondary-text font-bold">
+              {dateDisplay}
+            </span>
+          )
+        }
 
         <div class="flex gap-1.5 flex-wrap">
           {
-            isOngoing ? (
-              <span class="text-[0.7rem] uppercase tracking-wider px-2.5 py-0.5 rounded-full font-semibold whitespace-nowrap bg-accent-500 text-white">
-                Em andamento
-              </span>
-            ) : (
-              <span class="text-[0.7rem] uppercase tracking-wider px-2.5 py-0.5 rounded-full font-semibold whitespace-nowrap bg-accent-800 text-white">
-                Finalizada
-              </span>
-            )
+            hasStartYear &&
+              (isOngoing ? (
+                <span class="text-[0.7rem] uppercase tracking-wider px-2.5 py-0.5 rounded-full font-semibold whitespace-nowrap bg-accent-500 text-white">
+                  Em andamento
+                </span>
+              ) : (
+                <span class="text-[0.7rem] uppercase tracking-wider px-2.5 py-0.5 rounded-full font-semibold whitespace-nowrap bg-accent-800 text-white">
+                  Finalizada
+                </span>
+              ))
           }
           <span
             class="text-[0.7rem] uppercase tracking-wider px-2.5 py-0.5
                        rounded-full font-semibold whitespace-nowrap
                        bg-raised text-body"
           >
-            {researchLine}
+            {researchLineTitle}
           </span>
         </div>
       </div>
