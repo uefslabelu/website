@@ -239,6 +239,7 @@ collections:
         value_field: "{{slug}}"
         display_fields: ["fullname"]
         multiple: true
+        required: false
 
       - label: Detalhes
         name: body
