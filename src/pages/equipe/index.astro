@@ -17,6 +17,7 @@ const roleOrder = [
 
 const team = (await getCollection("team"))
   .map((e) => ({
+    slug: e.id,
     fullname: e.data.fullname,
     role: e.data.role ?? "",
     summary: e.body,
@@ -50,18 +51,23 @@ const team = (await getCollection("team"))
                   before:transition-transform before:duration-300
                   hover:before:scale-y-100"
         >
+          <a
+            href={`/pj-labelu/equipe/${p.slug}`}
+            class="absolute inset-0 z-0"
+            aria-label={`Ir para perfil de ${p.fullname}`}
+          />
           <span
             class="pointer-events-none absolute right-0 top-8 font-heading font-bold
                   leading-none select-none text-8xl text-raised
                   transition-colors duration-300 group-hover:text-accent-50
-                  max-sm:hidden"
+                  max-sm:hidden z-5"
             aria-hidden="true"
           >
             {String(i + 1).padStart(2, "0")}
           </span>
 
           <div
-            class="shrink-0 w-28 overflow-hidden bg-raised max-sm:w-full max-sm:h-36"
+            class="shrink-0 w-28 overflow-hidden bg-raised max-sm:w-full max-sm:h-36 relative z-10 cursor-pointer pointer-events-none"
             style="aspect-ratio: 3/4;"
           >
             {p.profile ? (
@@ -79,8 +85,8 @@ const team = (await getCollection("team"))
             )}
           </div>
 
-          <div class="flex-1 min-w-0 pr-24 flex flex-col gap-3 max-sm:pr-0">
-            <div>
+          <div class="flex-1 min-w-0 pr-24 flex flex-col gap-3 max-sm:pr-0 relative z-10 pointer-events-none">
+            <div class="cursor-pointer">
               <h2 class="font-heading text-2xl font-semibold text-title leading-tight">
                 {p.fullname}
               </h2>
@@ -93,7 +99,7 @@ const team = (await getCollection("team"))
               {p.summary}
             </p>
 
-            <div class="flex items-center gap-6 pt-1">
+            <div class="flex items-center gap-6 pt-1 relative z-10 pointer-events-auto">
               <a
                 href={p.lattes}
                 target="_blank"
