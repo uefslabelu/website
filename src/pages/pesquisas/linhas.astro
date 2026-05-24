@@ -1,33 +1,38 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import { getCollection, render } from "astro:content";
+
+const baseUrl = import.meta.env.BASE_URL;
+
+const lines = await getCollection("pesquisas");
+const orderedLines = await Promise.all(
+  lines.sort((a, b) => (a.data.order || 0) - (b.data.order || 0)),
+);
 ---
 
 <ContentLayout
   title="Linhas de Pesquisa"
   description="Conheça as linhas de pesquisa do Labelu"
 >
-  <article>
-    <h2 class="font-heading text-2xl font-bold text-accent-600 mb-6">
-      Linha 1 – Intelectuais, Estado e classes dominantes
-    </h2>
-    <p class="text-base text-body leading-relaxed mb-8">
-      Desenvolver estudos sobre a disposição dos poderes das classes dominantes
-      no âmbito do Estado (sociedade política) bem como em partidos e
-      organizações dispersas na sociedade civil, realizando pesquisas sobre o
-      pensamento e a ideologia das direitas na disputa pela hegemonia,
-      compreensão dos aparelhos privados e os mecanismos de inserção no conflito
-      de classes, através da mediação dos intelectuais.
-    </p>
-    <a class="underline text-accent-500" href="/pesquisas">Retornar</a>
-  </article>
-  <hr class="border-border my-12" />
-  <article>
-    <h2 class="font-heading text-2xl font-bold text-accent-600 mb-6">
-      Linha 2 – Projetos
-    </h2>
-    <p class="text-base text-body leading-relaxed mb-8">
-      Em breve, mais informações sobre esta linha de pesquisa.
-    </p>
-    <a class="underline text-accent-500" href="/pesquisas">Retornar</a>
-  </article>
+  {
+    orderedLines.map((line, index) => (
+      <>
+        {index > 0 && <hr class="border-border my-12" />}
+        <article>
+          <h2
+            id={line.id}
+            class="font-heading text-2xl font-bold text-accent-600 mb-6"
+          >
+            Linha {line.data.order} — {line.data.title}
+          </h2>
+          <div class="text-base text-body leading-relaxed mb-8 prose prose-sm max-w-none">
+            {line.body}
+          </div>
+          <a href={`${baseUrl}/pesquisas`} class="underline text-accent-500">
+            Retornar
+          </a>
+        </article>
+      </>
+    ))
+  }
 </ContentLayout>
