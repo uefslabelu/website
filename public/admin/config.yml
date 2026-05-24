@@ -184,7 +184,7 @@ collections:
     folder: src/content/pesquisas
     create: true
     identifier_field: title
-    summary: "{{title}} ({{startYear}}–{{endYear}})"
+    summary: "{{title}} ({{startYear}}-{{endYear}})"
 
     sortable_fields:
       fields: ["endYear", "title"]
