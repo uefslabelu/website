@@ -1,35 +1,42 @@
 ---
+import { Image } from "astro:assets";
 import ContentLayout from "../layouts/ContentLayout.astro";
 
-const base = import.meta.env.BASE_URL;
+import artwork1 from "../assets/images/404-1.png";
+import artwork2 from "../assets/images/404-2.png";
+import artwork3 from "../assets/images/404-3.png";
 
-const artworkPaths = [
-  `${base}/assets/images/404/404-1.png`,
-  `${base}/assets/images/404/404-2.png`,
-  `${base}/assets/images/404/404-3.png`,
-];
+const artworks = [artwork1, artwork2, artwork3];
 ---
 
 <ContentLayout
   title="404 · Página não encontrada"
   description="A página que você procurou não existe. Tente outra rota ou volte para a página inicial."
 >
-  <img
-    class="h-auto w-full mix-blend-multiply opacity-95"
-    src={artworkPaths[0]}
-    alt="Ilustração de Máquinário Quebrado ao estilo de gravuras da Revolução Industrial · Página 404"
-    data-artwork
-  />
+  {
+    artworks.map((src, i) => (
+      <Image
+        class="h-auto w-full mix-blend-multiply opacity-95"
+        class:list={[i !== 0 && "hidden"]}
+        src={src}
+        alt="Ilustração de Máquinário Quebrado ao estilo de gravuras da Revolução Industrial · Página Não Encontrada"
+        widths={[400, 800, 1200]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+        data-artwork
+      />
+    ))
+  }
 </ContentLayout>
 
-<script is:inline define:vars={{ artworkPaths }}>
-  const artwork = document.querySelector("[data-artwork]");
+<script>
+  const artworks =
+    document.querySelectorAll<HTMLImageElement>("[data-artwork]");
 
-  const pickRandomArtwork = () => {
-    const nextArtwork =
-      artworkPaths[Math.floor(Math.random() * artworkPaths.length)];
-    artwork.src = nextArtwork;
-  };
+  const picked = Math.floor(Math.random() * artworks.length);
 
-  pickRandomArtwork();
+  artworks.forEach((el, i) => {
+    el.classList.toggle("hidden", i !== picked);
+  });
 </script>
