@@ -35,7 +35,7 @@ const archive = defineCollection({
 })
 
 const research = defineCollection({
-  loader: glob({ base: './src/content/pesquisas-teste', pattern: '**/*.{md,mdx}' }),
+  loader: glob({ base: './src/content/pesquisas', pattern: '**/*.{md,mdx}' }),
   schema: z.object({
     title: z.string(),
     researchLine: z.string(),
