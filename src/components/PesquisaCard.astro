@@ -45,7 +45,10 @@ const resolvedResearchers = (
   class="group relative bg-surface rounded-xl px-6 py-5 shadow-sm
          hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
 >
-  <header class="flex justify-between items-start gap-4 mb-2">
+  <header
+    class="flex justify-between items-start gap-4 mb-2
+           max-[720px]:flex-col-reverse max-[720px]:items-start"
+  >
     <div class="flex flex-col gap-1.5">
       {
         dateDisplay && (
@@ -70,7 +73,7 @@ const resolvedResearchers = (
 
     <span
       class="text-xs uppercase tracking-wide px-2.5 py-0.5 rounded-full
-             font-semibold whitespace-nowrap bg-raised text-body"
+             font-semibold bg-raised text-body flex-shrink-0"
     >
       {researchLineTitle}
     </span>
