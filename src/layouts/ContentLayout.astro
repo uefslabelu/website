@@ -1,0 +1,29 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props as Props;
+---
+
+<BaseLayout title={`${title} — Labelu`} description={description}>
+  <section
+    class="prose max-w-200 mx-auto px-4 py-8"
+    aria-labelledby={`${title}`}
+  >
+    <h1 id={`${title}-heading`} class="text-4xl mb-1 max-[720px]:text-3xl">
+      { title }
+    </h1>
+    {
+      description ? (
+        <span class="text-secondary-text text-lg mb-10 max-[720px]:text-base">
+          {description}
+        </span>
+      ) : null
+    }
+    <slot />
+  </section>
+</BaseLayout>
