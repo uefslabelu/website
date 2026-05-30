@@ -46,28 +46,19 @@ const resolvedResearchers = (
     class="group relative bg-surface rounded-xl px-4 py-4 sm:px-6 sm:py-5 shadow-sm
         hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
   >
+    {
+      /*
+      Mobile:  col layout → Status (order-1) · Date (order-2) · Research line (order-3)
+      Desktop: row layout → [Status + Date stacked] left (sm:order-1) | Research line right (sm:order-2)
+    */
+    }
     <header
       class="flex flex-col gap-2 mb-3 sm:flex-row sm:justify-between sm:items-start sm:gap-4"
     >
-      {
-        /* Research line: shown FIRST on mobile (order-first), pushed to right on desktop (order-last) */
-      }
-      <a
-        href={`${baseUrl}/pesquisas/linhas#${line}`}
-        class="text-xs uppercase tracking-wide px-2 py-1 sm:px-2.5 sm:py-0.5 rounded-full
-        font-semibold bg-raised text-body
-        no-underline hover:bg-accent-100 transition-colors duration-150
-        block truncate max-w-full sm:max-w-lg sm:w-fit ml-auto
-        sm:shrink-0"
-        title={`Ver linha de pesquisa: ${researchLineTitle}`}
-      >
-        {researchLineTitle}
-      </a>
-
-      {/* Status + Date: only rendered when there's something to show */}
+      {/* Status + Date — mobile: order-1 top; desktop: left column */}
       {
         hasStartYear && (
-          <div class="flex flex-row items-center gap-2 sm:flex-col sm:items-start sm:gap-1.5 order-last sm:order-first">
+          <div class="flex flex-row items-center gap-2 sm:flex-col sm:items-start sm:gap-1.5 order-1 sm:order-1">
             {isOngoing ? (
               <span class="text-xs uppercase tracking-wide px-2.5 py-0.5 rounded-full font-semibold whitespace-nowrap bg-accent-500 text-white shrink-0">
                 Em andamento
@@ -85,6 +76,21 @@ const resolvedResearchers = (
           </div>
         )
       }
+
+      {
+        /* Research line — mobile: order-2 (below status/date); desktop: right column */
+      }
+      <a
+        href={`${baseUrl}/pesquisas/linhas#${line}`}
+        class="text-xs uppercase tracking-wide px-2 py-1 sm:px-2.5 sm:py-0.5 rounded-full
+        font-semibold bg-raised text-body
+        no-underline hover:bg-accent-100 transition-colors duration-150
+        block truncate max-w-full sm:max-w-[16rem] sm:w-fit
+        order-2 sm:order-2 sm:shrink-0"
+        title={`Ver linha de pesquisa: ${researchLineTitle}`}
+      >
+        {researchLineTitle}
+      </a>
     </header>
 
     <h2 class="text-lg sm:text-xl font-semibold mt-1 mb-2">
