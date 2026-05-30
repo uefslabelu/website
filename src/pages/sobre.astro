@@ -4,7 +4,12 @@ import { Image } from "astro:assets";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, LOCATION, CONTACT_EMAIL } from "../consts";
+import {
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  LOCATION,
+  CONTACT_EMAIL,
+} from "../consts";
 
 import Layout from "../layouts/BaseLayout.astro";
 import logo from "../assets/logo-labelu-about.png";
@@ -18,16 +23,16 @@ import logo from "../assets/logo-labelu-about.png";
   <body class="flex flex-col min-h-screen">
     <Header />
     <main>
-      <section class="bg-raised px-6 py-20 mb-12">
+      <section class="bg-raised px-6 py-8 md:py-20 mb-12">
         <div
-          class="mx-auto max-w-6xl flex flex-col md:flex-row items-center gap-12 md:gap-16"
+          class="mx-auto max-w-6xl flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-12 lg:gap-16"
         >
-          <div class="shrink-0 w-full md:w-2/5">
+          <div class="shrink-0 w-1/2 md:w-2/5">
             <Image src={logo} alt="Labelu" class="w-full h-auto" />
           </div>
-          <div class="flex-1">
+          <div class="flex-1 text-center md:text-left">
             <h1
-              class="font-heading text-3xl md:text-4xl font-bold text-title leading-tight"
+              class="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-title leading-tight"
             >
               Laboratório de História e Memória da Luta de Classes
             </h1>
@@ -175,7 +180,9 @@ import logo from "../assets/logo-labelu-about.png";
           </h2>
           <address class="mb-8">
             <p class="text-sm text-body mb-2">
-              <span class="font-semibold">Email:</span><a href={`mailto:${CONTACT_EMAIL}`}>
+              <span class="font-semibold">Email:</span><a
+                href={`mailto:${CONTACT_EMAIL}`}
+              >
                 {CONTACT_EMAIL}
               </a>
             </p>
