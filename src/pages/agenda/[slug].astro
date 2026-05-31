@@ -42,13 +42,13 @@ const jsonLd = {
 <BaseLayout title={`${title} — Agenda — Labelu`} description={agenda}>
   <article class="max-w-180 mx-auto px-4 py-8">
     <nav class="mb-8" aria-label="Navegação estrutural">
-      <a
-        href={`${baseUrl}/agenda/`}
-        class="text-sm font-semibold text-accent-600 no-underline
+      <button
+        onclick="history.back()"
+        class="cursor text-sm font-semibold text-accent-600 no-underline
                transition-colors duration-150 hover:text-accent-800 hover:underline"
       >
         ← Voltar para a Agenda
-      </a>
+      </button>
     </nav>
     <header class="mb-6">
       <div
