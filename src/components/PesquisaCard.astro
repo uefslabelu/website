@@ -60,16 +60,25 @@ const resolvedResearchers = (
         hasStartYear && (
           <div class="flex flex-row items-center gap-2 sm:flex-col sm:items-start sm:gap-1.5 order-1 sm:order-1">
             {isOngoing ? (
-              <span class="text-xs uppercase tracking-wide px-2.5 py-0.5 rounded-full font-semibold whitespace-nowrap bg-accent-500 text-white shrink-0">
+              <span
+                transition:name={`research-ongoing-${pesquisa.id}`}
+                class="text-xs uppercase tracking-wide px-2.5 py-0.5 rounded-full font-semibold whitespace-nowrap bg-accent-500 text-white shrink-0"
+              >
                 Em andamento
               </span>
             ) : (
-              <span class="text-xs uppercase tracking-wide px-2.5 py-0.5 rounded-full font-semibold whitespace-nowrap bg-accent-800 text-white shrink-0">
+              <span
+                transition:name={`research-finished-${pesquisa.id}`}
+                class="text-xs uppercase tracking-wide px-2.5 py-0.5 rounded-full font-semibold whitespace-nowrap bg-accent-800 text-white shrink-0"
+              >
                 Finalizada
               </span>
             )}
             {dateDisplay && (
-              <span class="text-xs sm:text-sm text-secondary-text font-bold whitespace-nowrap">
+              <span
+                transition:name={`research-date-${pesquisa.id}`}
+                class="text-xs sm:text-sm text-secondary-text font-bold whitespace-nowrap"
+              >
                 {dateDisplay}
               </span>
             )}
@@ -93,7 +102,10 @@ const resolvedResearchers = (
       </a>
     </header>
 
-    <h2 class="text-lg sm:text-xl font-semibold mt-1 mb-2">
+    <h2
+      transition:name={`research-title-${pesquisa.id}`}
+      class="text-lg sm:text-xl font-semibold mt-1 mb-2"
+    >
       <a
         href={pesquisaUrl}
         class="text-title no-underline hover:text-accent-500 transition-colors duration-150"
@@ -102,14 +114,20 @@ const resolvedResearchers = (
       </a>
     </h2>
 
-    <p class="text-sm text-secondary-text mb-3 leading-relaxed line-clamp-1">
+    <p
+      transition:name={`research-summary-${pesquisa.id}`}
+      class="text-sm text-secondary-text mb-3 leading-relaxed line-clamp-1"
+    >
       {summary}
     </p>
 
     {/* Pesquisadores */}
     {
       resolvedResearchers.length > 0 && (
-        <div class="flex items-start gap-1.5 text-xs sm:text-sm text-secondary-text mb-3">
+        <div
+          transition:name={`research-researchers-${pesquisa.id}`}
+          class="flex items-start gap-1.5 text-xs sm:text-sm text-secondary-text mb-3"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14"
