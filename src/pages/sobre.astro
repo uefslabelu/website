@@ -11,13 +11,14 @@ import {
   CONTACT_EMAIL,
 } from "../consts";
 
-import Layout from "../layouts/BaseLayout.astro";
 import logo from "../assets/logo-labelu-about.png";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
 <html lang="pt-BR">
   <head>
+    <ClientRouter />
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class="flex flex-col min-h-screen">
