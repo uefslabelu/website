@@ -31,6 +31,7 @@ const baseUrl = import.meta.env.BASE_URL;
         <div
           class="w-full max-w-xs overflow-hidden bg-raised"
           style="aspect-ratio: 3/4;"
+          transition:name={`profile-image-${member.id}`}
         >
           {
             profile ? (
@@ -56,11 +57,13 @@ const baseUrl = import.meta.env.BASE_URL;
         <div class="border-b border-border pb-8">
           <h1
             class="font-heading text-4xl font-semibold text-title leading-tight mb-2"
+            transition:name={`profile-name-${member.id}`}
           >
             {fullname}
           </h1>
           <p
             class="text-sm uppercase tracking-widest text-secondary-text font-medium"
+            transition:name={`profile-role-${member.id}`}
           >
             {role}
           </p>
@@ -81,6 +84,7 @@ const baseUrl = import.meta.env.BASE_URL;
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center px-4 py-2 rounded border border-accent-600 text-accent-600 hover:bg-accent-600 hover:text-raised transition-colors duration-150 font-semibold text-sm"
+                transition:name={`profile-lattes-${member.id}`}
               >
                 Currículo Lattes ↗
               </a>
@@ -115,6 +119,7 @@ const baseUrl = import.meta.env.BASE_URL;
         {/* Body Content */}
         <div
           class="prose prose-invert max-w-none text-body leading-relaxed text-justify"
+          transition:name={`profile-summary-${member.id}`}
         >
           <Fragment set:html={body} />
         </div>

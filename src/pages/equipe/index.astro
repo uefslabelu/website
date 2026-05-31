@@ -69,6 +69,7 @@ const team = (await getCollection("team"))
           <div
             class="shrink-0 w-28 overflow-hidden bg-raised max-sm:w-full max-sm:h-36 relative z-10 cursor-pointer pointer-events-none"
             style="aspect-ratio: 3/4;"
+            transition:name={`profile-image-${p.slug}`}
           >
             {p.profile ? (
               <Image
@@ -87,15 +88,24 @@ const team = (await getCollection("team"))
 
           <div class="flex-1 min-w-0 pr-24 flex flex-col gap-3 max-sm:pr-0 relative z-10 pointer-events-none">
             <div class="cursor-pointer">
-              <h2 class="font-heading text-2xl font-semibold text-title leading-tight">
+              <h2
+                class="font-heading text-2xl font-semibold text-title leading-tight"
+                transition:name={`profile-name-${p.slug}`}
+              >
                 {p.fullname}
               </h2>
-              <p class="mt-1 text-xs uppercase tracking-widest text-secondary-text font-medium">
+              <p
+                class="mt-1 text-xs uppercase tracking-widest text-secondary-text font-medium"
+                transition:name={`profile-role-${p.slug}`}
+              >
                 {p.role}
               </p>
             </div>
 
-            <p class="text-sm text-body leading-relaxed line-clamp-3">
+            <p
+              class="text-sm text-body leading-relaxed line-clamp-3"
+              transition:name={`profile-summary-${p.slug}`}
+            >
               {p.summary}
             </p>
 
@@ -105,6 +115,7 @@ const team = (await getCollection("team"))
                 target="_blank"
                 rel="noopener noreferrer"
                 class="text-xs font-semibold text-accent-600 hover:text-accent-800 transition-colors duration-150"
+                transition:name={`profile-lattes-${p.slug}`}
               >
                 Currículo Lattes ↗
               </a>
