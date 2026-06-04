@@ -2,6 +2,11 @@ import { defineCollection } from 'astro:content'
 import { glob } from 'astro/loaders'
 import { z } from 'astro/zod'
 
+const optionalUrl = z.preprocess(
+  (value) => (value === '' ? undefined : value),
+  z.url().optional()
+)
+
 const team = defineCollection({
   loader: glob({
     base: './src/content/equipe',
@@ -13,8 +18,8 @@ const team = defineCollection({
       fullname: z.string(),
       role: z.string(),
       lattes: z.url(),
-      orcid: z.url().optional(),
-      linkedin: z.url().optional(),
+      orcid: optionalUrl,
+      linkedin: optionalUrl,
       profile: z.optional(image()),
     }),
 })
