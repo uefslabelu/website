@@ -17,20 +17,30 @@ export default defineConfig( {
   fonts: [
     {
       provider: fontProviders.local(),
-      name: 'Atkinson',
-      cssVariable: '--font-atkinson',
+      name: 'Inter',
+      cssVariable: '--font-body',
       fallbacks: [ 'sans-serif' ],
       options: {
         variants: [
           {
-            src: [ './src/assets/fonts/atkinson-regular.woff' ],
-            weight: 400,
+            src: [ './src/assets/fonts/Inter-VariableFont_opsz,wght.ttf' ],
+            weight: '400 600',
             style: 'normal',
             display: 'swap',
           },
+        ],
+      },
+    },
+    {
+      provider: fontProviders.local(),
+      name: 'Literata',
+      cssVariable: '--font-heading',
+      fallbacks: [ 'serif' ],
+      options: {
+        variants: [
           {
-            src: [ './src/assets/fonts/atkinson-bold.woff' ],
-            weight: 700,
+            src: [ './src/assets/fonts/Literata-VariableFont_opsz,wght.ttf' ],
+            weight: '500 700',
             style: 'normal',
             display: 'swap',
           },

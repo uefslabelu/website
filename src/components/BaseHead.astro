@@ -2,7 +2,6 @@
 import "../styles/global.css";
 import { SITE_TITLE } from "../consts";
 import { Font } from "astro:assets";
-
 interface Props {
   title: string;
   description: string;
@@ -55,7 +54,8 @@ const ogImageURL = new URL(`${baseURL}/${image}`, Astro.site).toString();
 <meta name="theme-color" content="#a53824" />
 
 <!-- Fonts -->
-<Font cssVariable="--font-atkinson" preload />
+<Font cssVariable="--font-body" preload />
+<Font cssVariable="--font-heading" preload />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
