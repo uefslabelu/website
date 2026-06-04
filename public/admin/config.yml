@@ -29,6 +29,19 @@ backend:
 media_folder: "src/content/uploads"
 public_folder: "/src/content/uploads"
 
+media_libraries:
+  all:
+    max_file_size: 1024000 # 1MB
+    slugify_filename: true
+    transformations:
+      raster_image:
+        format: webp
+        quality: 85
+        width: 2048
+        height: 2048
+      svg:
+        optimize: true
+
 app_title: LABELU
 logo:
   src: /pj-labelu/assets/logo-labelu.png
