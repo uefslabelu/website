@@ -11,7 +11,6 @@ const { id } = Astro.props;
   aria-label="Formulário de Solicitação de Acesso ao Acervo"
   class="flex flex-col scroll-mt-32"
 >
-  <H2>Solicitação de Acesso</H2>
   <p>
     Preencha os dados abaixo. Ao clicar em enviar, seu aplicativo de e-mail será
     aberto com o pedido formatado.
@@ -79,8 +78,8 @@ const { id } = Astro.props;
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById(
-      "solicitacao-de-acesso",
+    const form = document.querySelector(
+      'form[aria-label="Formulário de Solicitação de Acesso ao Acervo"]',
     ) as HTMLFormElement;
 
     if (form) {

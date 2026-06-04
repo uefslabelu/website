@@ -2,6 +2,9 @@
 import { CONTACT_EMAIL, LOCATION } from "../../consts";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import { getCollection } from "astro:content";
+import mapIcon from "../../assets/site-images/Map.svg";
+import emailIcon from "../../assets/site-images/Email.svg";
+import folderIcon from "../../assets/site-images/Folder.svg";
 
 import Section from "./_Section.astro";
 import Hr from "./_Hr.astro";
@@ -20,77 +23,124 @@ const dadosFixos = {
 >
   <article class="flex flex-col gap-6">
     <Section id="instruções" title="Instruções para o Pedido Formal">
-      <p class="text-justify">
-        Para solicitar o acesso ao acervo físico do laboratório, preencha o
-        formulário abaixo detalhando os objetivos da sua pesquisa e quais grupos
-        de documentos você pretende consultar.
-        <br />
-        Nossa equipe analisará o pedido e responderá via e-mail.
-      </p>
-      <a
-        href="#solicitacao-de-acesso"
-        class="inline-block mt-4 px-6 py-3 bg-accent-600 text-white font-semibold rounded-md hover:bg-accent-700 transition-colors duration-150 w-fit"
-      >
-        ↓ Ir para o formulário
-      </a>
+      <div class="flex flex-col gap-8 lg:flex-row lg:items-center">
+        <div class="lg:flex-1">
+          <p class="text-justify">
+            Para solicitar o acesso ao acervo físico do laboratório, preencha o
+            formulário abaixo detalhando os objetivos da sua pesquisa e quais
+            grupos de documentos você pretende consultar.
+            <br />
+            Nossa equipe analisará o pedido e responderá via e-mail.
+          </p>
+          <a
+            href="#solicitacao-de-acesso"
+            class="inline-block mt-4 px-6 py-3 bg-accent-600 text-white font-semibold rounded-md hover:bg-accent-700 transition-colors duration-150 w-fit"
+          >
+            ↓ Ir para o formulário
+          </a>
+        </div>
+      </div>
     </Section>
 
     <Section id="endereço" title="Contato e Funcionamento">
-      <address class="flex flex-col gap-3">
-        <a
-          href="https://maps.app.goo.gl/9qCDBbf8MXFwN5hw9"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <strong>Localização:</strong>
-          {LOCATION}
-        </a>
-        <a>
-          <strong>Horários:</strong>
-          {dadosFixos.horarios}
-        </a>
-        <a href={`mailto:${CONTACT_EMAIL}`}>
-          <strong>E-mail:</strong>
-          {CONTACT_EMAIL}
-        </a>
-      </address>
+      <div class="flex flex-col gap-8 lg:flex-row lg:items-center">
+        <address class="flex flex-col gap-3 not-italic lg:flex-1">
+          <a
+            href="https://maps.app.goo.gl/9qCDBbf8MXFwN5hw9"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block"
+          >
+            <strong>Localização:</strong>
+            {LOCATION}
+          </a>
+          <p>
+            <strong>Horários:</strong>
+            {dadosFixos.horarios}
+          </p>
+          <a href={`mailto:${CONTACT_EMAIL}`} class="block">
+            <strong>E-mail:</strong>
+            {CONTACT_EMAIL}
+          </a>
+        </address>
+        <div class="lg:w-[42%] lg:shrink-0 lg:justify-self-end">
+          <img
+            src={mapIcon.src}
+            alt=""
+            aria-hidden="true"
+            class="w-full h-auto max-w-none"
+            loading="lazy"
+          />
+        </div>
+      </div>
     </Section>
 
     <Hr />
 
     <Section id="acervos-disponiveis" title="Acervos disponíveis para consulta">
-      <ul class="flex flex-col gap-8">
-        {
-          grupos.map((grupo) => (
-            <li class="flex flex-col md:flex-row gap-6 items-start">
-              
-              {/* IMPLEMENTAÇÃO DA FOTO DO ACERVO */}
-              {grupo.data.coverImage && (
-                <div class="w-full md:w-1/3 shrink-0">
-                  <img
-                    src={grupo.data.coverImage.src}
-                    alt={grupo.data.altText || `Imagem representativa do acervo: ${grupo.data.title}`}
-                    class="w-full h-auto object-cover rounded-xl shadow-sm border border-border"
-                    loading="lazy"
-                  />
-                </div>
-              )}
+      <div class="flex flex-col gap-8 lg:flex-row lg:items-start">
+        <div class="lg:flex-1">
+          <p class="text-sm text-secondary-text mb-4">
+            Selecione um acervo para consultar os materiais disponíveis.
+          </p>
+          <ul class="flex flex-col gap-8">
+            {
+              grupos.map((grupo) => (
+                <li class="flex flex-col md:flex-row gap-6 items-start">
+                  {grupo.data.coverImage && (
+                    <div class="w-full md:w-1/3 shrink-0">
+                      <img
+                        src={grupo.data.coverImage.src}
+                        alt={
+                          grupo.data.altText ||
+                          `Imagem representativa do acervo: ${grupo.data.title}`
+                        }
+                        class="w-full h-auto object-cover rounded-xl shadow-sm border border-border"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
 
-              <div class="flex-1">
-                <h3 class="text-xl font-bold text-accent-600 mb-1">
-                  {grupo.data.title}
-                </h3>
-                <p class="mb-4 text-justify" set:html={grupo.body} />
-              </div>
-              
-            </li>
-          ))
-        }
-      </ul>
+                  <div class="flex-1">
+                    <h3 class="text-xl font-bold text-accent-600 mb-1">
+                      {grupo.data.title}
+                    </h3>
+                    <p class="mb-4 text-justify" set:html={grupo.body} />
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="lg:w-[42%] lg:shrink-0 lg:sticky lg:top-32">
+          <img
+            src={folderIcon.src}
+            alt=""
+            aria-hidden="true"
+            class="w-full h-auto max-w-none"
+            loading="lazy"
+          />
+        </div>
+      </div>
     </Section>
 
     <Hr />
 
-    <RequestAcessForm id="solicitacao-de-acesso" />
+    <Section id="solicitacao-de-acesso" title="Solicitação de Acesso">
+      <div class="flex flex-col gap-8 lg:flex-row lg:items-start">
+        <div class="lg:flex-1">
+          <RequestAcessForm id="solicitacao-de-acesso-form" />
+        </div>
+        <div class="lg:w-[42%] lg:shrink-0 lg:sticky lg:top-32">
+          <img
+            src={emailIcon.src}
+            alt=""
+            aria-hidden="true"
+            class="w-full h-auto max-w-none"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </Section>
   </article>
 </ContentLayout>
