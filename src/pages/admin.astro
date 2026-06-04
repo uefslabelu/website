@@ -1,0 +1,21 @@
+---
+const configUrl = `${import.meta.env.BASE_URL}admin/config.yml`
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <link href={configUrl} type="text/yaml" rel="cms-config-url" />
+    <title>Content Manager</title>
+  </head>
+  <body>
+    <script type="module">
+      import CMS from '@sveltia/cms'
+
+      CMS.init()
+    </script>
+  </body>
+</html>
