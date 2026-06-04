@@ -31,7 +31,7 @@ public_folder: "/src/content/uploads"
 
 app_title: LABELU
 logo:
-  src: /pj-labelu/assets/logo-labelu-header.png
+  src: /pj-labelu/assets/logo-labelu.png
   show_in_header: true
 
 slug:
