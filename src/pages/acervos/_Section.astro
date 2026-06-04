@@ -4,7 +4,7 @@ import H2 from "./_H2.astro";
 const {id, title } = Astro.props;
 ---
 
-<section id={id} aria-labelledby={id}>
+<section class="scroll-mt-32" id={id} aria-labelledby={id}>
   <H2>{title}</H2>
   <slot />
 </section>
