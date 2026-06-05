@@ -1,6 +1,9 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "🙡 Laboratório de História e Memória da Luta de Classes",
+  "short_name": "Labelu",
+  "lang": "pt-BR",
+  "start_url": "/pj-labelu/",
+  "scope": "/pj-labelu/",
   "icons": [
     {
       "src": "/pj-labelu/android-chrome-192x192.png",
@@ -13,7 +16,39 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#a53824",
-  "background_color": "#a53824",
-  "display": "standalone"
+  "theme_color": "#7d2418",
+  "background_color": "#f9f7f5",
+  "display": "standalone",
+  "shortcuts": [
+    {
+      "name": "Equipe",
+      "short_name": "Equipe",
+      "description": "Conhecer a equipe do laboratório.",
+      "url": "/pj-labelu/equipe"
+    },
+    {
+      "name": "Agenda",
+      "short_name": "Agenda",
+      "description": "Ver eventos e atividades do laboratório.",
+      "url": "/pj-labelu/agenda"
+    },
+    {
+      "name": "Pesquisas",
+      "short_name": "Pesquisas",
+      "description": "Conhecer as pesquisas do laboratório.",
+      "url": "/pj-labelu/pesquisas"
+    },
+    {
+      "name": "Produções",
+      "short_name": "Produções",
+      "description": "Consultar produções acadêmicas e culturais.",
+      "url": "/pj-labelu/produções"
+    },
+    {
+      "name": "Acervos",
+      "short_name": "Acervos",
+      "description": "Acessar os acervos do laboratório.",
+      "url": "/pj-labelu/acervos"
+    }
+  ]
 }

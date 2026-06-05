@@ -1,8 +1,8 @@
 ---
-const baseUrl = import.meta.env.BASE_URL.endsWith( '/' )
+const baseUrl = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
-  : `${import.meta.env.BASE_URL}/`
-const configUrl = `${baseUrl}admin/config.yml`
+  : `${import.meta.env.BASE_URL}/`;
+const configUrl = `${baseUrl}admin/config.yml`;
 ---
 
 <!doctype html>
@@ -13,12 +13,23 @@ const configUrl = `${baseUrl}admin/config.yml`
     <meta name="robots" content="noindex" />
     <link href={configUrl} type="text/yaml" rel="cms-config-url" />
     <title>Content Manager</title>
+
+    <link rel="manifest" href="/pj-labelu/admin/manifest.webmanifest" />
+    <meta name="theme-color" content="#5c1208" />
   </head>
   <body>
     <script>
-      import CMS from '@sveltia/cms'
+      import CMS from "@sveltia/cms";
 
-      CMS.init()
+      CMS.init();
     </script>
   </body>
 </html>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/pj-labelu/admin/sw.js", {
+      scope: "/pj-labelu/admin/",
+    });
+  }
+</script>
