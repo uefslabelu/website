@@ -4,13 +4,35 @@ import type { HTMLAttributes } from "astro/types";
 type Props = HTMLAttributes<"a">;
 
 const { href, class: className, ...props } = Astro.props;
-const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, "");
-const subpath = pathname.match(/[^\/]+/g);
-const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
-const resolvedHref = new URL(
-  (href ?? "/").toString().replace(/^\//, ""),
-  Astro.site,
-).pathname;
+const baseUrl = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const baseUrlWithoutSlash = baseUrl.replace(/\/$/, "");
+const baseSegment = baseUrl.replace(/^\/|\/$/g, "");
+const hrefValue = (href ?? "/").toString();
+const normalizedHref = hrefValue.replace(/^\/+/, "");
+const hrefWithoutBase =
+  baseSegment &&
+  (normalizedHref === baseSegment ||
+    normalizedHref.startsWith(`${baseSegment}/`))
+    ? normalizedHref.slice(baseSegment.length).replace(/^\/+/, "")
+    : normalizedHref;
+const resolvedHref = `${baseUrl}${hrefWithoutBase}`;
+const pathnameWithoutBase =
+  Astro.url.pathname === baseUrlWithoutSlash
+    ? "/"
+    : Astro.url.pathname.startsWith(baseUrl)
+      ? `/${Astro.url.pathname.slice(baseUrl.length).replace(/^\/+/, "")}`
+      : Astro.url.pathname;
+const currentPath = decodeURI(
+  pathnameWithoutBase,
+);
+const targetPath = decodeURI(`/${hrefWithoutBase.replace(/^\/+/, "")}`);
+const currentSection = currentPath.match(/[^\/]+/)?.[0] ?? "";
+const targetSection = targetPath.match(/[^\/]+/)?.[0] ?? "";
+const isActive =
+  currentPath === targetPath ||
+  (targetSection !== "" && currentSection === targetSection);
 ---
 
 <a

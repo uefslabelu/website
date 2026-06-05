@@ -2,11 +2,18 @@
 import { Image } from "astro:assets";
 import HeaderLink from "./HeaderLink.astro";
 import logoLabelu from "../assets/logos/labelu-logo.svg";
+
+const baseUrl = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
 ---
 
 <header class="bg-page border-b border-accent-600 sticky top-0 z-50">
   <nav class="flex items-center justify-between max-w-6xl mx-auto py-2 px-6">
-    <a href="/pj-labelu/" class="flex items-center shrink-0 no-underline">
+    <a
+      href={baseUrl}
+      class="flex items-center shrink-0 no-underline"
+    >
       <Image
         src={logoLabelu}
         alt="Logo Labelu"
@@ -28,13 +35,13 @@ import logoLabelu from "../assets/logos/labelu-logo.svg";
         [&_a]:transition-colors [&_a]:duration-150
         max-sm:[&_a]:w-full max-sm:[&_a]:rounded-none max-sm:[&_a]:px-6 max-sm:[&_a]:py-3 max-sm:[&_a]:text-base"
     >
-      <HeaderLink href="pj-labelu/">Início</HeaderLink>
-      <HeaderLink href="pj-labelu/pesquisas">Pesquisas</HeaderLink>
-      <HeaderLink href="pj-labelu/produções">Produções</HeaderLink>
-      <HeaderLink href="pj-labelu/agenda">Agenda</HeaderLink>
-      <HeaderLink href="pj-labelu/equipe">Equipe</HeaderLink>
-      <HeaderLink href="pj-labelu/acervos">Acervos</HeaderLink>
-      <HeaderLink href="pj-labelu/sobre">Sobre</HeaderLink>
+      <HeaderLink href="/">Início</HeaderLink>
+      <HeaderLink href="/pesquisas">Pesquisas</HeaderLink>
+      <HeaderLink href="/produções">Produções</HeaderLink>
+      <HeaderLink href="/agenda">Agenda</HeaderLink>
+      <HeaderLink href="/equipe">Equipe</HeaderLink>
+      <HeaderLink href="/acervos">Acervos</HeaderLink>
+      <HeaderLink href="/sobre">Sobre</HeaderLink>
     </div>
 
     <button

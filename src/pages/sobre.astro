@@ -1,9 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import {
   SITE_TITLE,
   SITE_DESCRIPTION,
@@ -12,42 +10,33 @@ import {
 } from "../consts";
 
 import logo from "../assets/logos/logo-labelu-about.webp";
-import { ClientRouter } from "astro:transitions";
 ---
 
-<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <ClientRouter />
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="flex flex-col min-h-screen">
-    <Header />
-    <main>
-      <section class="bg-raised px-6 py-8 md:py-20 mb-12">
-        <div
-          class="mx-auto max-w-6xl flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-12 lg:gap-16"
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <section slot="hero" class="bg-raised px-6 py-8 md:py-20 mb-12">
+    <div
+      class="mx-auto max-w-6xl flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-12 lg:gap-16"
+    >
+      <div class="shrink-0 w-1/2 md:w-2/5">
+        <Image
+          src={logo}
+          alt="Labelu"
+          class="w-full h-auto"
+          widths={[240, 360, 480, 640, 800]}
+          sizes="(min-width: 768px) 40vw, 50vw"
+        />
+      </div>
+      <div class="flex-1 text-center md:text-left">
+        <h1
+          class="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-title leading-tight"
         >
-          <div class="shrink-0 w-1/2 md:w-2/5">
-            <Image
-              src={logo}
-              alt="Labelu"
-              class="w-full h-auto"
-              widths={[240, 360, 480, 640, 800]}
-              sizes="(min-width: 768px) 40vw, 50vw"
-            />
-          </div>
-          <div class="flex-1 text-center md:text-left">
-            <h1
-              class="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-title leading-tight"
-            >
-              Laboratório de História e Memória da Luta de Classes
-            </h1>
-          </div>
-        </div>
-      </section>
+          Laboratório de História e Memória da Luta de Classes
+        </h1>
+      </div>
+    </div>
+  </section>
 
-      <div class="max-w-200 mx-auto px-4 py-8">
+  <div class="max-w-200 mx-auto px-4 py-8">
         {/* Quem Somos Section */}
         <section class="mb-16">
           <h2
@@ -199,8 +188,5 @@ import { ClientRouter } from "astro:transitions";
             </p>
           </address>
         </section>
-      </div>
-    </main>
-    <Footer />
-  </body>
-</html>
+  </div>
+</BaseLayout>
