@@ -1,6 +1,6 @@
 {
-  "name": "Labelu Admin",
-  "short_name": "Admin",
+  "name": "Labelu 🙡 Gestão do Conteúdo (Admin)",
+  "short_name": "Labelu CMS",
   "id": "admin-labelu",
   "start_url": "/pj-labelu/admin/",
   "scope": "/pj-labelu/admin/",
