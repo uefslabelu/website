@@ -1,18 +1,89 @@
 ---
 import "../styles/global.css";
-import { SITE_TITLE } from "../consts";
+import {
+  CONTACT_EMAIL,
+  LOCATION,
+  SITE_DESCRIPTION,
+  SITE_TITLE,
+} from "../consts";
 import { Font } from "astro:assets";
 interface Props {
   title: string;
   description: string;
   image?: string;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const baseURL = import.meta.env.BASE_URL;
 
-const { title, description, image = "/og.webp" } = Astro.props;
-const ogImageURL = new URL(`${baseURL}/${image}`, Astro.site).toString();
+const { title, description, image = "/og.webp", structuredData = [] } = Astro.props;
+const basePath = baseURL.endsWith("/") ? baseURL : `${baseURL}/`;
+const imagePath = image.startsWith("/") ? image.slice(1) : image;
+const ogImageURL = new URL(`${basePath}${imagePath}`, Astro.site).toString();
+const siteURL = new URL(basePath, Astro.site).toString();
+const logoURL = new URL(`${basePath}assets/logo-labelu.png`, Astro.site).toString();
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${siteURL}#organization`,
+    name: "Labelu",
+    legalName: "Laboratório de História e Memória da Luta de Classes",
+    url: siteURL,
+    logo: {
+      "@type": "ImageObject",
+      url: logoURL,
+    },
+    description: SITE_DESCRIPTION,
+    email: CONTACT_EMAIL,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress:
+        "Prédio do Programa de Pós-graduação em História, Anexo do Módulo 7 - UEFS. Av. Transnordestina, s/n",
+      addressLocality: "Feira de Santana",
+      addressRegion: "BA",
+      postalCode: "44036-900",
+      addressCountry: "BR",
+    },
+    location: LOCATION,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteURL}#website`,
+    name: SITE_TITLE,
+    alternateName: "Labelu",
+    url: siteURL,
+    description: SITE_DESCRIPTION,
+    inLanguage: "pt-BR",
+    publisher: {
+      "@id": `${siteURL}#organization`,
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${canonicalURL.toString()}#webpage`,
+    url: canonicalURL.toString(),
+    name: title,
+    description,
+    inLanguage: "pt-BR",
+    isPartOf: {
+      "@id": `${siteURL}#website`,
+    },
+    about: {
+      "@id": `${siteURL}#organization`,
+    },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: ogImageURL,
+      width: 1200,
+      height: 630,
+    },
+  },
+  ...(Array.isArray(structuredData) ? structuredData : [structuredData]),
+];
 ---
 
 <!-- Global Metadata -->
@@ -82,3 +153,6 @@ const ogImageURL = new URL(`${baseURL}/${image}`, Astro.site).toString();
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImageURL} />
 <meta property="twitter:url" content={canonicalURL} />
+
+<!-- Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
