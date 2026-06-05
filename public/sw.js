@@ -1,4 +1,4 @@
-const CACHE_NAME = "labelu-site-v3"
+const CACHE_NAME = "labelu-site-v4"
 
 const ASSETS = [
   "/pj-labelu/site.webmanifest",

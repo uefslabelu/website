@@ -13,41 +13,101 @@
       "name": "Gerenciar Agenda",
       "short_name": "Agenda",
       "description": "Abrir a coleção Agenda no CMS.",
-      "url": "/pj-labelu/admin/#/collections/schedule"
+      "url": "/pj-labelu/admin/#/collections/schedule",
+      "icons": [
+        {
+          "src": "/pj-labelu/admin/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "/pj-labelu/admin/icon-512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
     },
     {
       "name": "Gerenciar Pesquisas",
       "short_name": "Pesquisas",
       "description": "Abrir a coleção Pesquisas no CMS.",
-      "url": "/pj-labelu/admin/#/collections/research"
+      "url": "/pj-labelu/admin/#/collections/research",
+      "icons": [
+        {
+          "src": "/pj-labelu/admin/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "/pj-labelu/admin/icon-512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
     },
     {
       "name": "Gerenciar Equipe",
       "short_name": "Equipe",
       "description": "Abrir a coleção Equipe no CMS.",
-      "url": "/pj-labelu/admin/#/collections/team"
+      "url": "/pj-labelu/admin/#/collections/team",
+      "icons": [
+        {
+          "src": "/pj-labelu/admin/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "/pj-labelu/admin/icon-512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
     },
     {
       "name": "Gerenciar Produções",
       "short_name": "Produções",
       "description": "Abrir a coleção Produções no CMS.",
-      "url": "/pj-labelu/admin/#/collections/productions"
+      "url": "/pj-labelu/admin/#/collections/productions",
+      "icons": [
+        {
+          "src": "/pj-labelu/admin/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "/pj-labelu/admin/icon-512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
     },
     {
       "name": "Gerenciar Acervos",
       "short_name": "Acervos",
       "description": "Abrir a coleção Acervos no CMS.",
-      "url": "/pj-labelu/admin/#/collections/archive"
+      "url": "/pj-labelu/admin/#/collections/archive",
+      "icons": [
+        {
+          "src": "/pj-labelu/admin/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "/pj-labelu/admin/icon-512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
     }
   ],
   "icons": [
     {
-      "src": "/pj-labelu/android-chrome-192x192.png",
+      "src": "/pj-labelu/admin/icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/pj-labelu/android-chrome-512x512.png",
+      "src": "/pj-labelu/admin/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

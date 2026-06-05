@@ -1,4 +1,4 @@
-const CACHE_NAME = "labelu-admin-v3"
+const CACHE_NAME = "labelu-admin-v4"
 
 const ASSETS = [
   "manifest.webmanifest",
