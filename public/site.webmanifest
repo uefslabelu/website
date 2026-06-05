@@ -1,6 +1,7 @@
 {
   "name": "🙡 Laboratório de História e Memória da Luta de Classes",
   "short_name": "Labelu",
+  "id": "visit-labelu",
   "lang": "pt-BR",
   "start_url": "/pj-labelu/",
   "scope": "/pj-labelu/",

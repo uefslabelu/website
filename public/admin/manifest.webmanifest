@@ -1,12 +1,13 @@
 {
   "name": "Labelu Admin",
   "short_name": "Admin",
+  "id": "admin-labelu",
   "start_url": "/pj-labelu/admin/",
   "scope": "/pj-labelu/admin/",
   "lang": "pt-BR",
   "display": "standalone",
-  "theme_color": "#5c1208",
-  "background_color": "#f3f0ec",
+  "theme_color": "#0f2747",
+  "background_color": "#eff4fb",
   "shortcuts": [
     {
       "name": "Gerenciar Agenda",
