@@ -42,6 +42,34 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## 🔄 Syncing Customer Changes
+
+Use [`sync-back.sh`](sync-back.sh) to bring changes from the customer fork back into this repository.
+
+The script:
+
+1. Adds the customer remote (`https://github.com/UEFSLabelu/website`) if it is not already configured.
+2. Fetches the latest customer branch and this repository's `main` branch.
+3. Creates or resets the `update-from-fork` branch from `origin/main`.
+4. Merges the customer's `main` branch into `update-from-fork`.
+5. Pushes `update-from-fork` to `origin`.
+6. Opens the GitHub compare page so a pull request can be created.
+
+Run it from the project root:
+
+```sh
+./sync-back.sh
+```
+
+If the merge has conflicts, the script stops and prints the commands to finish manually:
+
+```sh
+git add <files> && git commit
+git push origin update-from-fork -f
+```
+
+After resolving conflicts and pushing the branch, open the compare URL printed by the script to create the pull request.
+
 ## 🚀 Deploy
 
 Every update at `main` branch will trigger a deploy workflow setup for our Github Actions. The website is deployed under the Github Pages.
