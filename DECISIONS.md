@@ -46,3 +46,29 @@ Sveltia is inspired by Decap and aims to address many of its known limitations.
 It is straightforward to use and includes built-in support for dark mode and mobile devices.
 
 The integration with our system was smooth, and the migration from Decap to Sveltia as well.
+
+## June 2026
+
+### June 5 (Friday)
+
+#### Keeping the PWA without caching
+
+I added PWA support for both the public website and the Sveltia CMS admin area.
+
+This gives each app its own manifest, name, icon, theme color, scope, shortcuts, and installable experience.
+
+The first implementation also cached PWA assets and GET responses through the service workers.
+After reviewing that behavior, I decided to remove runtime caching and offline caching from the PWA.
+
+The site is deployed as a content-focused website on GitHub Pages.
+Its most important requirement is showing fresh published content and admin changes reliably.
+Caching pages, CMS assets, or fetched responses in a service worker creates a risk of stale content after deploys and can make debugging harder, especially because the admin area depends on live Sveltia CMS behavior and GitHub-backed content updates.
+
+The current service workers are intentionally minimal:
+
+1. They keep the PWA registration and app scopes valid.
+2. They call `self.skipWaiting()` so updates activate quickly.
+3. They remove old `labelu-site-*` and `labelu-admin-*` caches during activation.
+4. They do not intercept fetch requests.
+
+This means the project keeps the installation benefits of a PWA without promising offline behavior or serving stale cached pages.
