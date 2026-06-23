@@ -86,13 +86,13 @@ collections:
             name: instagramUrl
             widget: string
             required: false
-            pattern: ["^https?://.+", "Informe uma URL válida"]
+            prefix: "https://www.instagram.com/"
 
           - label: YouTube
             name: youtubeUrl
             widget: string
             required: false
-            pattern: ["^https?://.+", "Informe uma URL válida"]
+            prefix: "https://www.youtube.com/"
 
           - label: Endereço estruturado
             name: address
