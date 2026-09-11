@@ -25,8 +25,8 @@ locale: pt-BR
 # === Files & Media configuration
 
 # Media: https://sveltiacms.app/en/docs/media/internal#top-level-configuration
-media_folder: "/src/content/uploads"
-public_folder: "/src/content/uploads"
+media_folder: /public/uploads
+public_folder: /uploads
 
 media_libraries:
   all:
@@ -244,6 +244,8 @@ collections:
   - name: archive
     label: "Grupos de Acervo"
     folder: "src/content/acervo"
+    media_folder: /public/uploads/acervo
+    public_folder: /uploads/acervo
     create: true
     slug: "{{slug}}"
     fields:
@@ -254,8 +256,6 @@ collections:
       - label: Imagem de Capa
         name: coverImage
         widget: image
-        media_folder: src/content/uploads/acervo
-        public_folder: /src/content/uploads/acervo
         required: false
 
       - label: Texto Alternativo (Acessibilidade)
