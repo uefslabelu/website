@@ -1,39 +1,49 @@
 #!/usr/bin/env bash
 
-CUSTOMER_REMOTE="customer"
-CUSTOMER_URL="https://github.com/UEFSLabelu/website"
-CUSTOMER_BRANCH="main"
-BASE_BRANCH="main"
-SYNC_BRANCH="update-from-fork"
-REPO_URL="https://github.com/EcompJr/pj-labelu"
+set -euo pipefail
 
-# 1. Add the customer remote if it doesn't exist yet
-if git remote get-url "$CUSTOMER_REMOTE" >/dev/null 2>&1; then
-  echo "Customer remote already exists"
-else
-  git remote add "$CUSTOMER_REMOTE" "$CUSTOMER_URL"
-  echo "Customer remote added"
+if [[ $# -lt 1 || $# -gt 5 ]]; then
+  echo "Usage: $0 <upstream-url> [upstream-branch] [base-branch] [sync-branch] [base-remote]" >&2
+  exit 2
 fi
 
-# 2. Fetch latest from customer fork and your own base branch
-git fetch "$CUSTOMER_REMOTE"
-git fetch origin "$BASE_BRANCH"
+UPSTREAM_URL="$1"
+UPSTREAM_BRANCH="${2:-main}"
+BASE_BRANCH="${3:-main}"
+SYNC_BRANCH="${4:-update-from-upstream}"
+BASE_REMOTE="${5:-origin}"
+UPSTREAM_REMOTE="upstream"
+
+REPO_URL="$(git remote get-url "$BASE_REMOTE")"
+
+# 1. Add the customer remote if it doesn't exist yet
+if git remote get-url "$UPSTREAM_REMOTE" >/dev/null 2>&1; then
+  git remote set-url "$UPSTREAM_REMOTE" "$UPSTREAM_URL"
+  echo "Upstream remote updated"
+else
+  git remote add "$UPSTREAM_REMOTE" "$UPSTREAM_URL"
+  echo "Upstream remote added"
+fi
+
+# 2. Fetch the upstream branch and your own base branch
+git fetch "$UPSTREAM_REMOTE" "$UPSTREAM_BRANCH"
+git fetch "$BASE_REMOTE" "$BASE_BRANCH"
 
 # 3. Create (or reset) the sync branch from the latest base branch
-git checkout -B "$SYNC_BRANCH" "origin/$BASE_BRANCH"
+git checkout -B "$SYNC_BRANCH" "$BASE_REMOTE/$BASE_BRANCH"
 
-# 4. Merge customer's branch into the sync branch
-if git merge "$CUSTOMER_REMOTE/$CUSTOMER_BRANCH" --no-edit; then
+# 4. Merge the upstream branch into the sync branch
+if git merge "$UPSTREAM_REMOTE/$UPSTREAM_BRANCH" --no-edit; then
   echo "Merge completed cleanly"
 else
   echo "Merge conflicts detected — resolve them now, then run:"
   echo "   git add <files> && git commit"
-  echo "   git push origin $SYNC_BRANCH -f"
+  echo "   git push $BASE_REMOTE $SYNC_BRANCH -f"
   exit 1
 fi
 
 # 5. Push the sync branch
-git push origin "$SYNC_BRANCH" -f
+git push "$BASE_REMOTE" "$SYNC_BRANCH" -f
 echo "Branch '$SYNC_BRANCH' pushed"
 
 # 6. Open the compare/PR URL in the default browser
