@@ -1,7 +1,8 @@
 ---
 reference: 'UMA ESQUERDA PARA O CAPITAL: o transformismo dos grupos dirigentes do PT (1979-1998)'
 year: 2023
-authors: []
+authors:
+  - eurelino-coelho
 ---
 
 [![](/uploads/uma-esquerda.webp "UMA ESQUERDA PARA O CAPITAL o transformismo dos grupos dirigentes do PT (1979-1998)")](https://editora.uefs.br/historia-2/)
