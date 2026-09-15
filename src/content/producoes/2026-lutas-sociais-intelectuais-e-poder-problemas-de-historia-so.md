@@ -1,6 +1,6 @@
 ---
 reference: 'Lutas sociais, intelectuais e poder: problemas de História Social'
-year: 2012
+year: 2011
 authors:
   - larissa-penelu-bitencourt-pacheco
   - eurelino-coelho
