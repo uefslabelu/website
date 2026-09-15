@@ -13,11 +13,19 @@ Fruto de um experimento historiográfico, este livro reúne textos que tematizam
 A História Social defendida pelos autores é comprometida com a investigação do protagonismo dos sujeitos históricos e, ao mesmo tempo, voltada para a construção de abordagens totalizantes.
 
 **Área:** História
+
 **Editora:** Eduefs
+
 **Edição:** 1ª
+
 **Capa:** Justino Neto
+
 **ISBN:** 978-85-99799-65-9
+
 **Número de Páginas:** 274
+
 **Formato:** 17 x 24 cm
+
 **Acabamento:** Brochura
+
 **Idioma:** Português
