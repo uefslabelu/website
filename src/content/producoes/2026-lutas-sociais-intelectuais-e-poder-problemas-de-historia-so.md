@@ -1,12 +1,12 @@
 ---
-reference: 'Lutas sociais, intelectuais e poder: problemas de História Social'
+reference: 'LUTAS SOCIAIS, INTELECTUAIS E PODER: problemas de História Social'
 year: 2012
 authors:
   - larissa-penelu-bitencourt-pacheco
   - eurelino-coelho
 ---
 
-![](/uploads/lutas-sociais.webp "Lutas sociais, intelectuais e poder")
+[![](/uploads/lutas-sociais.webp "Lutas sociais, intelectuais e poder")](https://editora.uefs.br/historia-2/)
 
 Fruto de um experimento historiográfico, este livro reúne textos que tematizam a História Social em cujos campos há sempre lutas onde os intelectuais, trabalhadores e grupos subalternos são protagonistas por sua resistência ao poder. A ideia de se publicar os trabalhos nasceu das intervenções feitas pelos autores convidados para o IV Seminário de Pesquisa do Labelu (Laboratório de História e Memória da Esquerda e das Lutas Sociais), em outubro de 2010. O Labelu surgiu em 2006, no curso de História da UEFS (Universidade Estadual de Feira), constituído por pesquisadores interessados nos temas que o livro analisa e discute.
 
