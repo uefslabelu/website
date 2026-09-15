@@ -3,7 +3,7 @@ title: O Capital-Imperialismo e as ofensivas sobre as Américas
 category: LABELU DEBATE
 agenda: Mesa redonda dedicada à reflexão crítica sobre o imperialismo e suas dinâmicas históricas e contemporâneas nas Américas.
 date: 2026-03-10
-endDate: 2026-03-10
+endDate: ''
 time: 14:00
 local: Auditório do Mestrado em História (Módulo 7 – UEFS)
 ---
