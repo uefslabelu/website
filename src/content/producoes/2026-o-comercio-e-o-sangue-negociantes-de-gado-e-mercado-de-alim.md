@@ -1,6 +1,6 @@
 ---
 reference: 'O COMÉRCIO É O SANGUE: negociantes de gado e mercado de alimentos em Feira de Santana – Bahia (1919-1942)'
-year: 2021
+year: 2022
 authors:
   - andrei-de-brito-valente
 ---
