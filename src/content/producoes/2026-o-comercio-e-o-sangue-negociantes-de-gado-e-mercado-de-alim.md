@@ -1,5 +1,5 @@
 ---
-reference: 'VALENTE, Andrei de Brito. "O comércio é o sangue.": negociantes de gado e mercado de alimentos em Feira de Santana-BA (1919-1942). Feira de Santana: UEFS Editora, 2023.'
+reference: 'VALENTE, Andrei de Brito. "O comércio é o sangue.": negociantes de gado e mercado de alimentos em Feira de Santana-BA (1919-1942). Feira de Santana: UEFS Editora, 2022..'
 year: 2022
 authors:
   - andrei-de-brito-valente
