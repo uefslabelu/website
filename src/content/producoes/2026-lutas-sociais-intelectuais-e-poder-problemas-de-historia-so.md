@@ -1,5 +1,5 @@
 ---
-reference: 'LUTAS SOCIAIS, INTELECTUAIS E PODER: problemas de História Social'
+reference: 'COELHO NETO, Eurelino Teixeira (Organizador); PACHECO, Larissa Penelu Bitencourt (Organizadora). Lutas sociais, intelectuais e poder: problemas de História Social. Feira de Santana, BA: UEFS Editora, 2012.'
 year: 2012
 authors:
   - larissa-penelu-bitencourt-pacheco
