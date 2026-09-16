@@ -1,5 +1,5 @@
 ---
-reference: 'UMA ESQUERDA PARA O CAPITAL: o transformismo dos grupos dirigentes do PT (1979-1998)'
+reference: 'COELHO NETO, Eurelino Teixeira. Uma esquerda para o capital: o transformismo dos grupos dirigentes do PT (1979-1998). Feira de Santana, BA: UEFS Editora, 2023.'
 year: 2023
 authors:
   - eurelino-coelho
