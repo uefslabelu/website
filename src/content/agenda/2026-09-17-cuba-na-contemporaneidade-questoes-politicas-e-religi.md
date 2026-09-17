@@ -8,4 +8,4 @@ time: ''
 local: Auditório do Mestrado em História, módulo VII do campus universitário
 ---
 
-[Programação completa](https://drive.google.com/file/d/1Bc1i9W3VodVEUqoSS_YzFKJDgi7Xq4kq/view?usp=drive_link)
+[Programação completa](https://drive.google.com/file/d/1Bc1i9W3VodVEUqoSS_YzFKJDgi7Xq4kq/view?usp=sharing)
