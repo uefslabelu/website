@@ -1,10 +1,9 @@
 ---
 fullname: Andrei de Brito Valente
-role: Pesquisador
+role: Analista
 lattes: https://lattes.cnpq.br/6348750511590536
-
-
-
+orcid: ''
+linkedin: ''
 profile: ./profile.webp
 layout: researcher
 ---
