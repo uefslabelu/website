@@ -1,6 +1,6 @@
 ---
 title: 'CUBA NA CONTEMPORANEIDADE: QUESTÕES POLÍTICAS E RELIGIOSAS.'
-category: Seminário
+category: Conferência Internacional
 agenda: O Labelu e o CPR promovem dois dias de diálogo com a Dra. Ileana Limonta, da Universidade de Havana e do Centro de Investigações Psicológicas e Sociais.
 date: 2026-09-22
 endDate: 2026-09-24
