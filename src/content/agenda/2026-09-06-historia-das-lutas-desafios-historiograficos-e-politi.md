@@ -1,5 +1,5 @@
 ---
-title: 'Semnário Internacional História das lutas: desafios historiográficos e políticos. 20 anos do LABELU/UEFS.'
+title: 'Seminário Internacional História das Lutas: desafios historiográficos e políticos. 20 anos do LABELU/UEFS.'
 category: Seminário Internacional
 agenda: Confira a programação
 date: 2026-11-09
