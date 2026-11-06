@@ -8,4 +8,4 @@ time: ''
 local: Auditório 5, Módulo VII do campus universitário da UEFS
 ---
 
-[![](/uploads/programacao.webp "Confira a programação")](https://www.instagram.com/p/DexrbbXDUql/?utm_source=ig_web_copy_link&obrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==)https://www.instagram.com/p/DexrbbXDUql/?utm_source=ig_web_copy_link&obrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==)https://www.instagram.com/p/DexrbbXDUql/?utm_source=ig_web_copy_link&obrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==[![](/uploads/programacao-1_compressed_page-0001.webp)](https://labelu.uefs.br/uploads/programacao-1_compressed_page-0001.webp)
+[![](/uploads/programacao.webp "Confira a programação")](https://www.instagram.com/p/DexrbbXDUql/?utm_source=ig_web_copy_link&obrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==)https://www.instagram.com/p/DexrbbXDUql/?utm_source=ig_web_copy_link&obrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==)https://www.instagram.com/p/DexrbbXDUql/?utm_source=ig_web_copy_link&obrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==
